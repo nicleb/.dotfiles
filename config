@@ -1,0 +1,170 @@
+# Default modkey
+set $mod Mod4
+
+# Hide titlebar
+new_window pixel
+
+# i3-gaps
+gaps inner 6
+
+# Font for window titles.
+font pango: Source Code Pro Black 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec terminator
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start rofi
+bindsym $mod+d exec rofi -show run
+# Move between windows
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Name the workspaces
+set $WS1 "1:  www"
+set $WS2 "2:  code"
+set $WS3 "3:  terminal"
+set $WS4 "4:  files"
+set $WS5 "5:  virtual machines"
+set $WS6 "6:  music"
+set $WS7 "7:  random"
+
+# Switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $WS1
+bindsym $mod+Shift+2 move container to workspace number $WS2
+bindsym $mod+Shift+3 move container to workspace number $WS3
+bindsym $mod+Shift+4 move container to workspace number $WS4
+bindsym $mod+Shift+5 move container to workspace number $WS5
+bindsym $mod+Shift+6 move container to workspace number $WS6
+bindsym $mod+Shift+7 move container to workspace number $WS7
+bindsym $mod+Shift+8 move container to workspace number $WS8
+
+# Always open some programs on specified workspace
+assign [class="Firefox"]  $WS1
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window (you can also use the mouse for that)
+mode "resize"
+{
+        # Resize with the arrow keys
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
+
+        # Back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Defining colors
+set $cyan	#00afd7
+set $acqua	#00d787 
+set $wine 	#72003e
+set $magenta 	#af005f
+set $orange 	#ff8700
+set $silver 	#e4e4e4
+set $elegant	#1C2331
+
+# Set some nice colors      border	background  text	indicator
+client.focused              $cyan	$cyan    $silver   	$white
+client.unfocused            $elegant 	$elegant    $magenta    $white
+client.focused_inactive     $magenta    	$magenta       $silver     $magenta
+client.urgent               $acqua	$acqua	    $silver     $magenta
+client.placeholder          $magenta 	$magenta    $silver     $white
+
+# Start i3blocks to display a workspace bar
+bar
+{
+	position top
+	status_command i3blocks
+	font pango: SauceCodePro Nerd Font Black 10	
+	colors
+	{
+				    # Border	# Background	# Text
+		focused_workspace   $silver	$silver		$elegant
+		active_workspace    $elegant    $elegant        $orange
+		inactive_workspace  $elegant    $elegant       	$cyan
+		urgent_workspace    $wine    	$wine       	$silver
+		background          $elegant
+    	}
+}
+
+# Wallpaper
+exec_always --no-startup-id feh --bg-scale /home/nick/Downloads/img.jpg
+# Compositor for window transparency
+exec --no-startup-id compton -f
+# Others
+exec --no-startup-id g213-led -fx hwave keys 10
+exec --no-startup-id xbindkeys
+exec --no-startup-id pulseaudio --start
+
+# Applications
+bindsym $mod+shift+f exec firefox

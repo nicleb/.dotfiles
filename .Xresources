@@ -1,0 +1,211 @@
+*customization: -color
+xterm*termName: xterm-256color
+
+xterm*faceName: Office Code Pro
+xterm*faceSize: 11
+
+!border
+xterm*borderWidth: 0
+xterm*internalBorder: 0
+
+! special
+xterm*foreground:   #ffffff
+xterm*background:   #1b1d1e
+
+! black
+xterm*color0:       #262626
+xterm*color8:       #636363
+
+! red
+xterm*color1:       #d7005f
+xterm*color9:       #d7005f
+
+! green
+xterm*color2:       #87ff00
+xterm*color10:      #87ff00
+
+! yellow
+xterm*color3:       #ff8700
+xterm*color11:      #ff8700
+
+! blue
+xterm*color4:       #acac85
+xterm*color12:      #acac85
+
+! magenta
+xterm*color5:       #af5fff
+xterm*color13:      #af5fff
+
+! cyan
+xterm*color6:       #5fd7ff
+xterm*color14:      #5fd7ff
+
+! white
+xterm*color7:       #444444
+xterm*color15:      #8a8a8a
+
+! rofi theme
+
+/* RASI Theme */
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #3c3c3c, #31a8c6, #000000
+rofi.color-normal: #3c3c3c, #aaaaaa, #3b3b3b, #586e75, #e0b326
+rofi.color-active: #57b55a, #ffffff, #991dab, #dbac27, #fdf6e3
+rofi.color-urgent: #ffffff, #1e2b2b, #00fff2, #f81629, #ffffff
+
+#window {
+    border:     1;
+    foreground: @foreground;
+    background: rgba ( 0, 0, 0, 0 % );
+    padding:    5;
+}
+#window.box {
+    foreground: @bordercolor;
+    background: @background;
+}
+#window.mainbox {
+    border:  0;
+    padding: 0;
+}
+#window.mainbox.message.box {
+    border:     1px dash 0px 0px ;
+    foreground: @separatorcolor;
+    padding:    2px 0px 0px ;
+}
+#window.mainbox.message.normal {
+    foreground: @foreground;
+}
+#window.mainbox.listview {
+    fixed-height: 0;
+    border:       2px dash 0px 0px ;
+    padding:      2px 0px 0px ;
+}
+#window.mainbox.listview.element {
+    border:  0;
+    padding: 1px ;
+}
+#window.mainbox.listview.element.normal.normal {
+    foreground: @normal-foreground;
+    background: @normal-background;
+}
+#window.mainbox.listview.element.normal.urgent {
+    foreground: @urgent-foreground;
+    background: @urgent-background;
+}
+#window.mainbox.listview.element.normal.active {
+    foreground: @active-foreground;
+    background: @active-background;
+}
+#window.mainbox.listview.element.selected.normal {
+    foreground: @selected-normal-foreground;
+    background: @selected-normal-background;
+}
+#window.mainbox.listview.element.selected.urgent {
+    foreground: @selected-urgent-foreground;
+    background: @selected-urgent-background;
+}
+#window.mainbox.listview.element.selected.active {
+    foreground: @selected-active-foreground;
+    background: @selected-active-background;
+}
+#window.mainbox.listview.element.alternate.normal {
+    foreground: @alternate-normal-foreground;
+    background: @alternate-normal-background;
+}
+#window.mainbox.listview.element.alternate.urgent {
+    foreground: @alternate-urgent-foreground;
+    background: @alternate-urgent-background;
+}
+#window.mainbox.listview.element.alternate.active {
+    foreground: @alternate-active-foreground;
+    background: @alternate-active-background;
+}
+#window.mainbox.listview.scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+}
+#window.mainbox.listview.box {
+    scrollbar: true;
+    spacing:   2px ;
+}
+#window.mainbox.sidebar.box {
+    border: 2px dash 0px 0px ;
+}
+#window.mainbox.sidebar.button.selected {
+    foreground: @selected-normal-foreground;
+    background: @selected-normal-background;
+}
+#window.mainbox.inputbar {
+    spacing: 0;
+}
+#window.mainbox.inputbar.box {
+    border: 0px ;
+}
+#window.mainbox.inputbar.normal {
+    foreground: @foreground;
+}
+
+! Cursor theme
+xcursor.theme:            Vanilla-DMZ
+
+! URxvt config
+URxvt*termName:           rxvt-16color
+
+URxvt.scrollBar:          off
+URxvt.font:               xft:FontAwesome:size=10:antialias=true
+URxvt.internalBorder:     0
+URxvt*selectToClipboard:  true
+URxvt*saveLines:          10000
+
+URxvt.perl-ext-common:    default,matcher,tabbedex,searchable-scrollback
+URxvt.urlLauncher:        /usr/bin/chromium
+URxvt.matcher.button:     1
+URxvt.tabbed.tabbar-fg:   8
+URxvt.tabbed.tabbar-bg:   0
+URxvt.tabbed.tab-fg:      2
+URxvt.tabbed.tab-bg:      0
+URxvt.tabbed.new-button:  no
+URxvt.tabbed.title:       no
+
+! Tango color palette
+URxvt*background:         #2e3436
+URxvt*foreground:         #eeeeec
+URxvt*cursorColor:        #8ae234
+! foreground color for underline
+URxvt*colorUL:            #8ae234
+! line color for underline
+URxvt*underlineColor:     #92659a
+! black dark/light
+URxvt*color0:             #2e3436
+URxvt*color8:             #6e706b
+! red dark/light
+URxvt*color1:             #cc0000
+URxvt*color9:             #ef2929
+! green dark/light
+URxvt*color2:             #4e9a06
+URxvt*color10:            #8ae234
+! yellow dark/light
+URxvt*color3:             #edd400
+URxvt*color11:            #fce94f
+! blue dark/light
+URxvt*color4:             #3465a4
+URxvt*color12:            #729fcf
+! magenta dark/light
+URxvt*color5:             #92659a
+URxvt*color13:            #c19fbe
+! cyan dark/light
+URxvt*color6:             #07c7ca
+URxvt*color14:            #63e9e9
+! white dark/light
+URxvt*color7:             #d3d7cf
+URxvt*color15:            #eeeeec
+
+! xscreensaver
+xscreensaver.fade:        false
+xscreensaver.unfade: false
